@@ -234,7 +234,8 @@ BとCが招待を承認することで、2人とも共有リポジトリを操�
 
 【Collaborator追加画面】
 
-<img width="800" alt="Collaborator追加画面" src="ここに画像URL">
+<img width="886" height="891" alt="image" src="https://github.com/user-attachments/assets/6c1b5049-7a77-4745-919f-e05c70d3905f" />
+
 
 ---
 
@@ -260,7 +261,8 @@ Hello
 
 【index.htmlの画面】
 
-<img width="800" alt="index.html" src="ここに画像URL">
+<img width="886" height="949" alt="image" src="https://github.com/user-attachments/assets/6f501f48-ddf0-4bf6-a774-66b61d7e39f7" />
+
 
 ---
 
@@ -601,6 +603,9 @@ A
 
 ---
 
+<img width="886" height="952" alt="image" src="https://github.com/user-attachments/assets/d414eaa9-2366-46ae-a4ab-d7217df7d86d" />
+
+
 # 24. AがCommit・Push
 
 AはVS Codeのソース管理機能を使用して変更をCommitする。
@@ -790,7 +795,10 @@ main
 
 【Merge画面】
 
-<img width="800" alt="Merge画面" src="ここに画像URL">
+<img width="886" height="919" alt="image" src="https://github.com/user-attachments/assets/318addd2-7417-42f7-a2e2-2d77b72ebc5a" />
+
+
+
 
 これで指定された一連の演習が完了した。
 
@@ -997,7 +1005,8 @@ Merge pull request
 
 【Collaborator追加画面】
 
-<img width="800" alt="Collaborator追加" src="ここに画像URL">
+<img width="886" height="891" alt="image" src="https://github.com/user-attachments/assets/4a370b1a-1868-435f-88bb-097438fed0a0" />
+
 
 ### ③ BのPull Request
 
@@ -1021,7 +1030,8 @@ Merge pull request
 
 【Merge画面】
 
-<img width="800" alt="Merge" src="ここに画像URL">
+<img width="886" height="919" alt="image" src="https://github.com/user-attachments/assets/d7965fe4-3c59-4ad2-bd91-67f9de40014e" />
+
 
 ---
 
@@ -1037,13 +1047,15 @@ Merge pull request
 
 【VS Codeのブランチ操作画面】
 
-<img width="800" alt="ブランチ作成" src="ここに画像URL">
+<img width="886" height="952" alt="image" src="https://github.com/user-attachments/assets/c3ac8cb5-aa62-4cb9-8fd2-35a471b2ffb4" />
+
 
 ### ⑨ ソース管理
 
 【VS Codeのソース管理画面】
 
-<img width="800" alt="ソース管理" src="ここに画像URL">
+<img width="467" height="520" alt="image" src="https://github.com/user-attachments/assets/99d1a3bd-91dd-4098-9667-81e6df21f4ff" />
+
 
 ### ⑩ Commit
 
