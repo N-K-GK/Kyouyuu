@@ -6,11 +6,11 @@
 
 # 1. 演習概要
 
-本演習では、GitHubの**共有リポジトリモデル（Shared Repository Model）**を使用し、2人で共同開発を行った。
+本演習では、GitHubの**共有リポジトリモデル（Shared Repository Model）**を使用し、3人で共同開発を行った。
 
 共有リポジトリモデルでは、リード役がGitHub上にリポジトリを作成し、開発者をCollaboratorとして追加する。
 
-開発者は共有リポジトリをcloneし、自分の作業ブランチ上で開発を行う。
+開発者は共有リポジトリをCloneし、自分の作業ブランチ上で開発を行う。
 
 作業した内容を共有リポジトリへPushした後、Pull Request（PR）を作成してリード役にレビューを依頼する。
 
@@ -22,31 +22,33 @@
 
 # 2. チーム構成
 
-今回のチームは2人で構成した。
+今回のチームは3人で構成した。
 
 | 担当 | 役割           |
 | -- | ------------ |
 | A  | リード役・リポジトリ管理 |
-| B  | 開発者          |
+| B  | 開発者1         |
+| C  | 開発者2         |
 
-AがGitHub上に共有リポジトリを作成し、BをCollaboratorとして追加する。
+AがGitHub上に共有リポジトリを作成し、BとCをCollaboratorとして追加する。
 
-BはAの共有リポジトリをcloneし、自分の作業ブランチで開発を行う。
+BとCはAの共有リポジトリをCloneし、それぞれの作業ブランチで開発を行う。
 
 ```text
-A
-│
-│ リポジトリ作成
-↓
-共有リポジトリ
-│
-│ CollaboratorとしてBを追加
-↓
-B
-│
-│ clone
-↓
-Bのローカル環境
+                         A
+                    リード役
+                       │
+                       ↓
+                共有リポジトリ
+                  │           │
+          Collaborator   Collaborator
+                  ↓           ↓
+                  B           C
+               開発者1       開発者2
+                  │           │
+                Clone       Clone
+                  ↓           ↓
+              BのVS Code   CのVS Code
 ```
 
 ---
@@ -57,68 +59,82 @@ Bのローカル環境
 
 リポジトリの管理者が開発者をCollaboratorとして追加することで、開発者も共有リポジトリへPushできるようになる。
 
-今回の演習では、Aがリポジトリの管理者となり、BをCollaboratorとして追加した。
+今回の演習では、Aがリポジトリの管理者となり、BとCをCollaboratorとして追加した。
 
-BはAの共有リポジトリをcloneし、作業ブランチを作成して開発を行う。
+BとCはAの共有リポジトリをCloneし、それぞれ作業ブランチを作成して開発を行う。
 
 変更内容は共有リポジトリへPushした後、Pull Requestを作成してAにレビューを依頼する。
 
 ```text
-                    A
-                リード役
-                    │
-                    ↓
-             共有リポジトリ
-                    │
-              Collaborator
-                    ↓
-                    B
-                開発者
-                    │
-                  clone
-                    ↓
-               ローカル環境
-                    │
-              作業ブランチ
-                    │
-                  編集
-                    │
-                 Commit
-                    │
-                  Push
-                    ↓
-             共有リポジトリ
-                    │
-                   PR
-                    ↓
-               AがReview
-                    │
-                  Merge
-                    ↓
-                  main
+                         A
+                    リード役
+                       │
+                       ↓
+                共有リポジトリ
+                 /           \
+                /             \
+               ↓               ↓
+              B                 C
+           開発者1           開発者2
+               │               │
+          作業ブランチ      作業ブランチ
+               │               │
+             編集            編集
+               │               │
+            Commit          Commit
+               │               │
+             Push            Push
+               │               │
+               ↓               ↓
+              PR              PR
+               │               │
+               └───────┬───────┘
+                       ↓
+                  AがReview
+                       ↓
+                     Merge
+                       ↓
+                     main
 ```
 
 ---
 
-## フォークとプルモデルとの違い
+# 4. フォークとプルモデルとの違い
 
 ### 共有リポジトリモデル
 
 ```text
-B
-│
-│ Push
-↓
-共有リポジトリ
-│
-↓
-Pull Request
-│
-↓
-Aがレビュー
-│
-↓
-main
+B ──────────┐
+            │ Push
+            ↓
+       共有リポジトリ
+            │
+            ↓
+           PR
+            │
+            ↓
+       Aがレビュー
+            │
+            ↓
+          main
+```
+
+Cも同様に共有リポジトリへPushする。
+
+```text
+C ──────────┐
+            │ Push
+            ↓
+       共有リポジトリ
+            │
+            ↓
+           PR
+            │
+            ↓
+       Aがレビュー
+            │
+            ↓
+          main
 ```
 
 ### フォークとプルモデル
@@ -140,13 +156,13 @@ Aの元リポジトリ
 main
 ```
 
-共有リポジトリモデルでは、**BがCollaboratorとして権限を与えられているため、Aの共有リポジトリへPushできる**点が特徴である。
+共有リポジトリモデルでは、**BやCがCollaboratorとして権限を与えられているため、Aの共有リポジトリへ直接Pushできる**点が特徴である。
 
-一方、フォークとプルモデルでは、BはAの元リポジトリではなく、自分自身のForkへPushする。
+一方、フォークとプルモデルでは、BやCは自分自身のForkへPushする。
 
 ---
 
-# 4. 使用した環境
+# 5. 使用した環境
 
 今回の演習では以下の環境を使用した。
 
@@ -175,7 +191,7 @@ main
 
 ---
 
-# 5. AがGitHub上にリモートリポジトリを作成
+# 6. AがGitHub上にリモートリポジトリを作成
 
 最初にAがGitHub上で演習用のリポジトリを作成した。
 
@@ -197,24 +213,24 @@ AのGitHubアカウント
 
 ---
 
-# 6. AがBをCollaboratorとして追加
+# 7. AがB・CをCollaboratorとして追加
 
-Aは作成したリポジトリの設定から、BをCollaboratorとして追加する。
+Aは作成したリポジトリの設定から、BとCをCollaboratorとして追加する。
 
-GitHubのリポジトリ画面から、Collaboratorの設定を開き、BのGitHubアカウントを指定して招待する。
+GitHubのリポジトリ画面からCollaboratorの設定を開き、それぞれのGitHubアカウントを指定して招待する。
 
 ```text
-A
-│
-↓
-共有リポジトリ
-│
-│ Collaborator追加
-↓
-B
+             A
+             │
+             ↓
+      共有リポジトリ
+         /       \
+        /         \
+       ↓           ↓
+      B             C
 ```
 
-Bが招待を承認することで、Bも共有リポジトリを操作できるようになる。
+BとCが招待を承認することで、2人とも共有リポジトリを操作できるようになる。
 
 【Collaborator追加画面】
 
@@ -222,7 +238,7 @@ Bが招待を承認することで、Bも共有リポジトリを操作できる
 
 ---
 
-# 7. Aがindex.htmlを作成
+# 8. Aがindex.htmlを作成
 
 Aは`index.html`を作成し、以下の内容を記述した。
 
@@ -248,11 +264,9 @@ Hello
 
 ---
 
-# 8. BがリポジトリをClone
+# 9. BがリポジトリをClone
 
 BはAから共有リポジトリへのCollaborator権限を付与された後、共有リポジトリをVS CodeへCloneする。
-
-GitHubのリポジトリからURLを取得し、VS CodeのClone機能を使用してリポジトリを取得する。
 
 ```text
 Aの共有リポジトリ
@@ -273,12 +287,39 @@ Clone後、BはVS Codeでリポジトリを開く。
 
 ---
 
-# 9. Bが作業ブランチを作成
+# 10. CがリポジトリをClone
+
+CもBと同様に、Aの共有リポジトリをVS CodeへCloneする。
+
+```text
+Aの共有リポジトリ
+        │
+        │ Clone
+        ↓
+Cのローカル環境
+        │
+        ↓
+     VS Code
+```
+
+これにより、BとCのローカル環境に同じ`main`の内容が取得される。
+
+```text
+共有リポジトリ
+      │
+      ├────────→ BのVS Code
+      │
+      └────────→ CのVS Code
+```
+
+---
+
+# 11. Bが作業ブランチを作成
 
 Bは`main`ブランチを元に作業ブランチを作成する。
 
 ```text
-共有リポジトリ
+Bのローカルリポジトリ
 │
 ├── main
 │
@@ -287,13 +328,13 @@ Bは`main`ブランチを元に作業ブランチを作成する。
 
 Bは`main`を直接編集せず、`work-branch-B`上で作業を行う。
 
-【VS Codeのブランチ作成画面】
+【BのVS Codeブランチ作成画面】
 
-<img width="800" alt="ブランチ作成" src="ここに画像URL">
+<img width="800" alt="Bのブランチ作成" src="ここに画像URL">
 
 ---
 
-# 10. Bがindex.htmlを編集
+# 12. Bがindex.htmlを編集
 
 BはVS Codeで`index.html`を編集する。
 
@@ -312,13 +353,13 @@ World
     └── index.html
 ```
 
-【VS Codeのソース管理画面】
+【Bのソース管理画面】
 
-<img width="800" alt="ソース管理" src="ここに画像URL">
+<img width="800" alt="Bのソース管理" src="ここに画像URL">
 
 ---
 
-# 11. BがCommit・Push
+# 13. BがCommit・Push
 
 BはVS Codeのソース管理機能を使用して変更をCommitする。
 
@@ -338,31 +379,32 @@ BのVS Code
 
 ---
 
-# 12. BがPull Requestを作成
+# 14. BがPull Requestを作成
 
 BはGitHubのWebブラウザからPull Requestを作成する。
 
 作業ブランチ`work-branch-B`から共有リポジトリの`main`ブランチへPull Requestを作成する。
 
 ```text
-共有リポジトリ
 work-branch-B
       │
-      │ Pull Request
+      ↓
+Pull Request
+      │
       ↓
 共有リポジトリ
-main
+      │
+      ↓
+    main
 ```
 
-Pull Requestの作成時に、変更内容や確認してほしい内容を説明する。
+【BのPull Request作成画面】
 
-【Pull Request作成画面】
-
-<img width="800" alt="Pull Request作成画面" src="ここに画像URL">
+<img width="800" alt="BのPull Request" src="ここに画像URL">
 
 ---
 
-# 13. AがBのPull Requestをレビュー・Merge
+# 15. AがBのPull Requestをレビュー・Merge
 
 AはGitHubブラウザからBが作成したPull Requestを確認する。
 
@@ -389,15 +431,123 @@ Merge
 main
 ```
 
-【Pull Requestレビュー画面】
+【BのPull Requestレビュー画面】
 
-<img width="800" alt="Pull Requestレビュー画面" src="ここに画像URL">
+<img width="800" alt="Pull Requestレビュー" src="ここに画像URL">
 
 ---
 
-# 14. Aがローカルのmainを最新化
+# 16. Cが作業ブランチを作成
 
-BのPull Requestが`main`へMergeされたため、Aはローカルの`main`を最新状態にする。
+Bの変更が`main`へMergeされた後、Cも最新の`main`を取得する。
+
+Cはローカルの`main`をPullして最新化した後、作業ブランチを作成する。
+
+```text
+Cのローカルリポジトリ
+│
+├── main
+│
+└── work-branch-C
+```
+
+Cは`main`を直接編集せず、`work-branch-C`上で作業を行う。
+
+---
+
+# 17. Cがindex.htmlを編集
+
+CはVS Codeで`index.html`を編集する。
+
+例えば、Bの変更を残した状態でさらに内容を追加する。
+
+```html
+Hello
+World
+GitHub
+```
+
+編集後、変更内容を確認する。
+
+---
+
+# 18. CがCommit・Push
+
+CはVS Codeのソース管理機能を使用して変更をCommitする。
+
+その後、共有リポジトリへ作業ブランチをPushする。
+
+```text
+CのVS Code
+     │
+     │ Push
+     ↓
+共有リポジトリ
+     │
+     └── work-branch-C
+```
+
+---
+
+# 19. CがPull Requestを作成
+
+CはGitHubブラウザから、`work-branch-C`から共有リポジトリの`main`へのPull Requestを作成する。
+
+```text
+work-branch-C
+      │
+      ↓
+Pull Request
+      │
+      ↓
+共有リポジトリ
+      │
+      ↓
+    main
+```
+
+【CのPull Request作成画面】
+
+<img width="800" alt="CのPull Request" src="ここに画像URL">
+
+---
+
+# 20. AがCのPull Requestをレビュー・Merge
+
+AはGitHubブラウザからCのPull Requestを確認する。
+
+Cが変更した`index.html`の内容を確認し、問題がないことを確認する。
+
+その後、Pull Requestを承認して共有リポジトリの`main`へMergeする。
+
+```text
+C
+│
+↓
+work-branch-C
+│
+↓
+Pull Request
+│
+↓
+Aがレビュー
+│
+↓
+Merge
+│
+↓
+main
+```
+
+【CのPull Requestレビュー画面】
+
+<img width="800" alt="CのPull Requestレビュー" src="ここに画像URL">
+
+---
+
+# 21. Aがローカルのmainを最新化
+
+BとCのPull Requestが`main`へMergeされたため、Aはローカルの`main`を最新状態にする。
 
 まずVS Codeで`main`ブランチへ切り替える。
 
@@ -414,16 +564,16 @@ AのVS Code
 最新のmain
 ```
 
-これにより、Bが行った変更がAのローカル環境にも反映される。
+これにより、BとCが行った変更がAのローカル環境にも反映される。
 
 ---
 
-# 15. Aが作業ブランチを作成
+# 22. Aが作業ブランチを作成
 
 Aは最新化した`main`を元に、新しい作業ブランチを作成する。
 
 ```text
-共有リポジトリ
+Aのローカルリポジトリ
 │
 ├── main
 │
@@ -434,23 +584,24 @@ Aも`main`を直接編集せず、作業ブランチ上で作業を行う。
 
 ---
 
-# 16. Aがindex.htmlを編集
+# 23. Aがindex.htmlを編集
 
 AはVS Codeで`index.html`を編集する。
 
-例えば、Bの変更を残した状態でさらに内容を追加する。
+例えば、BとCの変更を残した状態でさらに内容を追加する。
 
 ```html
 Hello
 World
 GitHub
+A
 ```
 
 編集後、変更内容を確認する。
 
 ---
 
-# 17. AがCommit・Push
+# 24. AがCommit・Push
 
 AはVS Codeのソース管理機能を使用して変更をCommitする。
 
@@ -468,7 +619,7 @@ AのVS Code
 
 ---
 
-# 18. AがPull Requestを作成・Merge
+# 25. AがPull Requestを作成・Merge
 
 Aは自分の作業ブランチから`main`へのPull Requestを作成する。
 
@@ -506,7 +657,7 @@ main
 
 ---
 
-# 19. Bがローカルのmainを最新化
+# 26. Bがローカルのmainを最新化
 
 Aの変更が`main`へMergeされたため、Bはローカルの`main`を最新化する。
 
@@ -525,16 +676,14 @@ BのVS Code
 最新のmain
 ```
 
-これにより、Aが行った変更がBのローカル環境にも反映される。
-
 ---
 
-# 20. Bが作業ブランチを作成
+# 27. Bが作業ブランチを作成
 
 Bは最新化した`main`を元に、新しい作業ブランチを作成する。
 
 ```text
-共有リポジトリ
+Bのローカルリポジトリ
 │
 ├── main
 │
@@ -545,7 +694,7 @@ Bはこの作業ブランチ上で`stylesheet.css`を追加する。
 
 ---
 
-# 21. Bがstylesheet.cssを追加
+# 28. Bがstylesheet.cssを追加
 
 BはVS Codeで`stylesheet.css`を新しく作成する。
 
@@ -571,7 +720,7 @@ body {
 
 ---
 
-# 22. BがCommit・Push
+# 29. BがCommit・Push
 
 Bは`stylesheet.css`をCommitする。
 
@@ -589,7 +738,7 @@ BのVS Code
 
 ---
 
-# 23. BがPull Requestを作成
+# 30. BがPull Requestを作成
 
 BはGitHubブラウザから、`work-branch-B-css`から共有リポジトリの`main`へのPull Requestを作成する。
 
@@ -608,11 +757,11 @@ Pull Request
 
 【BのPull Request作成画面】
 
-<img width="800" alt="Pull Request作成画面" src="ここに画像URL">
+<img width="800" alt="BのPull Request作成" src="ここに画像URL">
 
 ---
 
-# 24. AがBのPull Requestをレビュー・Merge
+# 31. AがBのPull Requestをレビュー・Merge
 
 AはGitHubブラウザからBのPull Requestを確認する。
 
@@ -647,9 +796,9 @@ main
 
 ---
 
-# 25. 今回の作業全体
+# 32. 今回の作業全体
 
-今回の2人での共有リポジトリモデルによる作業をまとめると、以下のようになる。
+今回の3人での共有リポジトリモデルによる作業をまとめると、以下のようになる。
 
 ```text
                          A
@@ -667,39 +816,32 @@ main
                        ↓
                       main
                        │
+              ┌────────┴────────┐
+              ↓                 ↓
+              B                 C
+           開発者1           開発者2
+              │                 │
+            Clone             Clone
+              │                 │
+              ↓                 ↓
+             main              main
+              │                 │
+        ブランチ作成       ブランチ作成
+              │                 │
+        index.html編集     index.html編集
+              │                 │
+           Commit            Commit
+              │                 │
+            Push              Push
+              │                 │
+              ↓                 ↓
+             PR                PR
+              │                 │
+              └────────┬────────┘
                        ↓
-               BをCollaborator追加
-                       │
+                  Aがレビュー
                        ↓
-                       B
-                    開発者
-                       │
-                     Clone
-                       │
-                       ↓
-                      main
-                       │
-                       ↓
-                作業ブランチ作成
-                       │
-                       ↓
-                index.html編集
-                       │
-                       ↓
-                    Commit
-                       │
-                       ↓
-                     Push
-                       │
-                       ↓
-                      PR
-                       │
-                       ↓
-                 Aがレビュー
-                       │
-                       ↓
-                    Merge
-                       │
+                     Merge
                        ↓
                      main
                        │
@@ -720,10 +862,8 @@ main
                        │
                        ↓
                       PR
-                       │
                        ↓
                     Merge
-                       │
                        ↓
                      main
                        │
@@ -757,16 +897,16 @@ main
 
 ---
 
-# 26. 共有リポジトリモデルの基本的な流れ
+# 33. 共有リポジトリモデルの基本的な流れ
 
 今回の演習では、以下の流れで共同開発を行った。
 
 ```text
 リポジトリ作成
       ↓
-Collaborator追加
+B・CをCollaboratorに追加
       ↓
-リポジトリClone
+B・CがClone
       ↓
 作業ブランチ作成
       ↓
@@ -778,7 +918,7 @@ Commit
       ↓
 Pull Request
       ↓
-リード役がレビュー
+Aがレビュー
       ↓
 Merge
       ↓
@@ -791,7 +931,7 @@ Pullして最新化
 
 ---
 
-# 27. GitHubとVS Codeの役割
+# 34. GitHubとVS Codeの役割
 
 今回の演習では、GitHubとVS Codeを以下のように使い分けた。
 
@@ -815,11 +955,11 @@ Pullして最新化
 
 ---
 
-# 28. Git Graphによる履歴確認
+# 35. Git Graphによる履歴確認
 
-今回の演習では、複数の作業ブランチを作成し、それぞれからPull Requestを作成して`main`へ変更を取り込んだ。
+今回の演習では、A・B・Cそれぞれが作業ブランチを作成し、Pull Requestを作成して`main`へ変更を取り込んだ。
 
-Git Graphを確認すると、作業ブランチが作成され、Pull RequestによるMergeが行われた履歴を確認できる。
+Git Graphを確認すると、複数の作業ブランチが作成され、Pull RequestによるMergeが行われた履歴を確認できる。
 
 【ここに実際のGit Graphのスクリーンショットを貼る】
 
@@ -841,7 +981,7 @@ Merge pull request
 
 ---
 
-# 29. スクリーンショット
+# 36. スクリーンショット
 
 実際の演習で使用した画面を以下に掲載する。
 
@@ -859,19 +999,25 @@ Merge pull request
 
 <img width="800" alt="Collaborator追加" src="ここに画像URL">
 
-### ③ Pull Request
+### ③ BのPull Request
 
-【Pull Request作成画面】
+【BのPull Request作成画面】
 
-<img width="800" alt="Pull Request" src="ここに画像URL">
+<img width="800" alt="BのPull Request" src="ここに画像URL">
 
-### ④ Pull Requestレビュー
+### ④ CのPull Request
+
+【CのPull Request作成画面】
+
+<img width="800" alt="CのPull Request" src="ここに画像URL">
+
+### ⑤ Pull Requestレビュー
 
 【レビュー画面】
 
 <img width="800" alt="Pull Requestレビュー" src="ここに画像URL">
 
-### ⑤ Merge
+### ⑥ Merge
 
 【Merge画面】
 
@@ -881,37 +1027,37 @@ Merge pull request
 
 ## Visual Studio Code
 
-### ⑥ リポジトリClone
+### ⑦ リポジトリClone
 
 【VS CodeのClone画面】
 
 <img width="800" alt="Clone" src="ここに画像URL">
 
-### ⑦ ブランチ作成
+### ⑧ ブランチ作成
 
 【VS Codeのブランチ操作画面】
 
 <img width="800" alt="ブランチ作成" src="ここに画像URL">
 
-### ⑧ ソース管理
+### ⑨ ソース管理
 
 【VS Codeのソース管理画面】
 
 <img width="800" alt="ソース管理" src="ここに画像URL">
 
-### ⑨ Commit
+### ⑩ Commit
 
 【Commit時の画面】
 
 <img width="800" alt="Commit" src="ここに画像URL">
 
-### ⑩ Push / Pull
+### ⑪ Push / Pull
 
 【VS Codeの同期操作画面】
 
-<img width="800" alt="Push Pull" src="ここに画像URL">
+<img width="800" alt="Push / Pull" src="ここに画像URL">
 
-### ⑪ Git Graph
+### ⑫ Git Graph
 
 【Git Graphのスクリーンショット】
 
@@ -919,17 +1065,17 @@ Merge pull request
 
 ---
 
-# 30. まとめ
+# 37. まとめ
 
-今回の演習では、A・Bの2人で**共有リポジトリモデル**による共同開発を行った。
+今回の演習では、A・B・Cの3人で**共有リポジトリモデル**による共同開発を行った。
 
-AがGitHub上にリポジトリを作成し、BをCollaboratorとして追加した。
+AがGitHub上にリポジトリを作成し、BとCをCollaboratorとして追加した。
 
-Bは共有リポジトリをCloneし、作業ブランチを作成して開発を行った。
+BとCは共有リポジトリをCloneし、それぞれ作業ブランチを作成して開発を行った。
 
-Bは作業ブランチで`index.html`を編集し、共有リポジトリへPushした後、Pull Requestを作成した。
+BとCは作業ブランチで変更を行い、共有リポジトリへPushした後、Pull Requestを作成した。
 
-AはPull Requestの内容をレビューし、問題がなければ共有リポジトリの`main`へMergeした。
+AはそれぞれのPull Requestの内容をレビューし、問題がなければ共有リポジトリの`main`へMergeした。
 
 その後、Aはローカルの`main`を最新化して作業ブランチを作成し、`index.html`を編集してPull Requestを作成・Mergeした。
 
@@ -961,6 +1107,6 @@ Merge
 main
 ```
 
-また、共有リポジトリモデルでは、**開発者が同じリポジトリを共有し、Collaboratorとして権限を与えられた開発者がそのリポジトリへPushできる**ことが特徴である。
+また、共有リポジトリモデルでは、**開発者ごとにForkを作成する必要がなく、同じ共有リポジトリを使用して共同開発を行う**ことが特徴である。
 
-この演習を通して、GitHubのリポジトリ管理、ブランチ作成、Commit、Push、Pull、Pull Request、レビュー、Mergeという一連の共同開発の流れを実践した。
+この演習を通して、GitHubのリポジトリ管理、Collaborator管理、ブランチ作成、Commit、Push、Pull、Pull Request、レビュー、Mergeという一連の共同開発の流れを実践した。
