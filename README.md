@@ -207,10 +207,6 @@ AのGitHubアカウント
   共有リポジトリ
 ```
 
-【GitHubのリポジトリ作成画面】
-
-<img width="800" alt="GitHubのリポジトリ作成画面" src="ここに画像URL">
-
 ---
 
 # 7. AがB・CをCollaboratorとして追加
@@ -283,10 +279,6 @@ Bのローカル環境
 
 Clone後、BはVS Codeでリポジトリを開く。
 
-【リポジトリのClone画面】
-
-<img width="800" alt="リポジトリのClone" src="ここに画像URL">
-
 ---
 
 # 10. CがリポジトリをClone
@@ -330,10 +322,6 @@ Bのローカルリポジトリ
 
 Bは`main`を直接編集せず、`work-branch-B`上で作業を行う。
 
-【BのVS Codeブランチ作成画面】
-
-<img width="800" alt="Bのブランチ作成" src="ここに画像URL">
-
 ---
 
 # 12. Bがindex.htmlを編集
@@ -354,10 +342,6 @@ World
 └── 変更
     └── index.html
 ```
-
-【Bのソース管理画面】
-
-<img width="800" alt="Bのソース管理" src="ここに画像URL">
 
 ---
 
@@ -400,10 +384,6 @@ Pull Request
     main
 ```
 
-【BのPull Request作成画面】
-
-<img width="800" alt="BのPull Request" src="ここに画像URL">
-
 ---
 
 # 15. AがBのPull Requestをレビュー・Merge
@@ -432,10 +412,6 @@ Merge
 ↓
 main
 ```
-
-【BのPull Requestレビュー画面】
-
-<img width="800" alt="Pull Requestレビュー" src="ここに画像URL">
 
 ---
 
@@ -508,10 +484,6 @@ Pull Request
     main
 ```
 
-【CのPull Request作成画面】
-
-<img width="800" alt="CのPull Request" src="ここに画像URL">
-
 ---
 
 # 20. AがCのPull Requestをレビュー・Merge
@@ -540,10 +512,6 @@ Merge
 ↓
 main
 ```
-
-【CのPull Requestレビュー画面】
-
-<img width="800" alt="CのPull Requestレビュー" src="ここに画像URL">
 
 ---
 
@@ -656,10 +624,6 @@ Merge
 main
 ```
 
-【AのPull Request画面】
-
-<img width="800" alt="AのPull Request" src="ここに画像URL">
-
 ---
 
 # 26. Bがローカルのmainを最新化
@@ -719,10 +683,6 @@ body {
     └── stylesheet.css
 ```
 
-【stylesheet.css作成画面】
-
-<img width="800" alt="stylesheet.css" src="ここに画像URL">
-
 ---
 
 # 29. BがCommit・Push
@@ -759,10 +719,6 @@ Pull Request
         ↓
       main
 ```
-
-【BのPull Request作成画面】
-
-<img width="800" alt="BのPull Request作成" src="ここに画像URL">
 
 ---
 
@@ -969,10 +925,6 @@ Pullして最新化
 
 Git Graphを確認すると、複数の作業ブランチが作成され、Pull RequestによるMergeが行われた履歴を確認できる。
 
-【ここに実際のGit Graphのスクリーンショットを貼る】
-
-<img width="800" alt="Git Graph" src="ここに画像URL">
-
 Git Graphには、例えば以下のようなMerge履歴が表示されている。
 
 ```text
@@ -995,38 +947,14 @@ Merge pull request
 
 ## GitHub
 
-### ① 共有リポジトリ
-
-【GitHubの共有リポジトリ画面】
-
-<img width="800" alt="共有リポジトリ" src="ここに画像URL">
-
-### ② Collaborator追加
+### ① Collaborator追加
 
 【Collaborator追加画面】
 
 <img width="886" height="891" alt="image" src="https://github.com/user-attachments/assets/4a370b1a-1868-435f-88bb-097438fed0a0" />
 
 
-### ③ BのPull Request
-
-【BのPull Request作成画面】
-
-<img width="800" alt="BのPull Request" src="ここに画像URL">
-
-### ④ CのPull Request
-
-【CのPull Request作成画面】
-
-<img width="800" alt="CのPull Request" src="ここに画像URL">
-
-### ⑤ Pull Requestレビュー
-
-【レビュー画面】
-
-<img width="800" alt="Pull Requestレビュー" src="ここに画像URL">
-
-### ⑥ Merge
+### ② Merge
 
 【Merge画面】
 
@@ -1037,43 +965,19 @@ Merge pull request
 
 ## Visual Studio Code
 
-### ⑦ リポジトリClone
-
-【VS CodeのClone画面】
-
-<img width="800" alt="Clone" src="ここに画像URL">
-
-### ⑧ ブランチ作成
+### ③ ブランチ作成
 
 【VS Codeのブランチ操作画面】
 
 <img width="886" height="952" alt="image" src="https://github.com/user-attachments/assets/c3ac8cb5-aa62-4cb9-8fd2-35a471b2ffb4" />
 
 
-### ⑨ ソース管理
+### ④ ソース管理
 
 【VS Codeのソース管理画面】
 
 <img width="467" height="520" alt="image" src="https://github.com/user-attachments/assets/99d1a3bd-91dd-4098-9667-81e6df21f4ff" />
 
-
-### ⑩ Commit
-
-【Commit時の画面】
-
-<img width="800" alt="Commit" src="ここに画像URL">
-
-### ⑪ Push / Pull
-
-【VS Codeの同期操作画面】
-
-<img width="800" alt="Push / Pull" src="ここに画像URL">
-
-### ⑫ Git Graph
-
-【Git Graphのスクリーンショット】
-
-<img width="800" alt="Git Graph" src="ここに画像URL">
 
 ---
 
