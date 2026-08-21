@@ -85,7 +85,7 @@ BとCはAの共有リポジトリをCloneし、それぞれ作業ブランチを
                ↓               ↓
              Push            Push
                ↓               ↓
-              PR              PR
+          Pull Request    Pull Request
                |               |
                └───────┬───────┘
                        ↓
@@ -109,7 +109,7 @@ BとCはAの共有リポジトリをCloneし、それぞれ作業ブランチを
             ↓
       共有リポジトリ
             ↓
-            PR
+       Pull Request
             ↓
         Aがレビュー
             ↓
@@ -125,7 +125,7 @@ Cも同様に共有リポジトリへPushする。
             ↓
       共有リポジトリ
             ↓
-            PR
+       Pull Request
             ↓
         Aがレビュー
             ↓
@@ -435,12 +435,12 @@ CはVSCodeのソース管理機能を使用して変更をCommitする。
 その後、共有リポジトリへ作業ブランチをPushする。
 
 ```text
- CのVSCode
-     |
-     | Push
-     ↓
+  CのVSCode
+      |
+      | Push
+      ↓
 共有リポジトリ
-     ↓
+      ↓
 work-branch-C
 ```
 
@@ -475,7 +475,7 @@ Cが変更した`index.html`の内容を確認し、問題がないことを確�
       ↓
 work-branch-C
       ↓
-Pull Request
+ Pull Request
       ↓
   Aがレビュー
       ↓
@@ -501,7 +501,7 @@ BとCのPull Requestが`main`へMergeされたため、Aはローカルの`main`
       ↓
   AのVSCode
       ↓
- 最新のmain
+  最新のmain
 ```
 
 これにより、BとCが行った変更がAのローカル環境にも反映される。
@@ -604,7 +604,7 @@ Aの変更が`main`へMergeされたため、Bはローカルの`main`を最新�
       |
       | Pull
       ↓
- BのVSCode
+  BのVSCode
       ↓
  最新のmain
 ```
@@ -688,7 +688,7 @@ AはGitHubブラウザからBのPull Requestを確認する。
         ↓
  work-branch-B-css
         ↓
-  Pull Request
+   Pull Request
         ↓
     Aがレビュー
         ↓
@@ -717,9 +717,9 @@ Aの変更が`main`へMergeされたため、Cはローカルの`main`を最新�
       |
       | Pull
       ↓
- CのVSCode
+  CのVSCode
       ↓
- 最新のmain
+  最新のmain
 ```
 
 ---
@@ -765,7 +765,7 @@ Cは`stylesheet_c.css`をCommitする。
        |
        | Push
        ↓
-  共有リポジトリ
+ 共有リポジトリ
        ↓
 work-branch-C-css
 ```
@@ -781,7 +781,7 @@ work-branch-C-css
         ↓
    Pull Request
         ↓
-   共有リポジトリ
+  共有リポジトリ
         ↓
       main
 ```
@@ -801,7 +801,7 @@ AはGitHubブラウザからCのPull Requestを確認する。
         ↓
 work-branch-C-css
         ↓
-  Pull Request
+   Pull Request
         ↓
      Aがレビュー
         ↓
@@ -838,7 +838,7 @@ work-branch-C-css
               ┌─────────┴────────┐
               ↓                  ↓
               B                  C
-           開発者1            開発者2
+           開発者1             開発者2
               ↓                  ↓
             Clone              Clone
               ↓                  ↓
@@ -846,13 +846,13 @@ work-branch-C-css
               ↓                  ↓
          ブランチ作成        ブランチ作成
               ↓                  ↓
-        index.html編集      index.html編集
+        index.html編集     index.html編集
               ↓                  ↓
            Commit             Commit
               ↓                  ↓
             Push               Push
               ↓                  ↓
-             PR                 PR
+         Pull Request       Pull Request
               |                  |
               └─────────┬────────┘
                         ↓
@@ -862,7 +862,7 @@ work-branch-C-css
                         ↓
                       main
                         ↓
-                    AがPull
+                     AがPull
                         ↓
                  作業ブランチ作成
                         ↓
@@ -872,32 +872,32 @@ work-branch-C-css
                         ↓
                       Push
                         ↓
-                        PR
+                   Pull Request
                         ↓
                       Merge
                         ↓
                       main
                         |
-              ┌─────────┴─────────┐
-              ↓                   ↓
-              B                   C
-           開発者1              開発者2
-              ↓                   ↓
-             Pull                Pull
-              ↓                   ↓
-            main                main
-              ↓                   ↓
-        作業ブランチ作成      作業ブランチ作成
-              ↓                   ↓
-       stylesheet.css追加  stylesheet_c.css追加
-              ↓                   ↓
-           Commit              Commit
-              ↓                   ↓
-            Push                Push
-              ↓                   ↓
-             PR                  PR
-              |                   |
-              └─────────┬─────────┘
+            ┌───────────┴───────────┐
+            ↓                       ↓
+            B                       C
+         開発者1                  開発者2
+            ↓                       ↓
+           Pull                    Pull
+            ↓                       ↓
+          main                    main
+            ↓                       ↓
+     作業ブランチ作成          作業ブランチ作成
+            ↓                       ↓
+    stylesheet.css追加     stylesheet_c.css追加
+            ↓                       ↓
+         Commit                  Commit
+            ↓                       ↓
+          Push                    Push
+            ↓                       ↓
+       Pull Request            Pull Request
+            |                       |
+            └───────────┬───────────┘
                         ↓
                       Merge
                         ↓
@@ -917,11 +917,11 @@ B・CをCollaboratorに追加
           ↓
      B・CがClone
           ↓
-    作業ブランチ作成
+   作業ブランチ作成
           ↓
-    ファイル編集
+     ファイル編集
           ↓
-        Commit
+       Commit
           ↓
   共有リポジトリへPush
           ↓
@@ -1040,13 +1040,13 @@ CがPull Requestを作成し、Aがレビュー・Mergeすることで、指定�
         ↓
       Clone
         ↓
-  作業ブランチ作成
+ 作業ブランチ作成
         ↓
    ファイル編集
         ↓
-      Commit
+     Commit
         ↓
- 共有リポジトリへPush
+共有リポジトリへPush
         ↓
    Pull Request
         ↓
