@@ -1,12 +1,12 @@
-# Git/GitHub 共同開発演習
+# Git/GitHub 共同開発演習課題
 
 ## 共有リポジトリモデル
 
 ---
 
-# 1. 演習概要
+# 1. 演習課題概要
 
-本演習では、GitHubの**共有リポジトリモデル（Shared Repository Model）**を使用し、3人で共同開発を行った。
+本演習課題では、GitHubの**共有リポジトリモデル（Shared Repository Model）**を使用し、3人で共同開発を行った。
 
 共有リポジトリモデルでは、リード役がGitHub上にリポジトリを作成し、開発者をCollaboratorとして追加する。
 
@@ -16,7 +16,7 @@
 
 リード役がPull Requestをレビューし、問題がなければ`main`ブランチへMergeする。
 
-今回の演習では、GitHubのWebブラウザとVisual Studio Code（VS Code）のGUI機能を使用して作業を行った。
+今回の演習課題では、GitHubのWebブラウザとVisual Studio Code（VSCode）のGUI機能を使用して作業を行った。
 
 ---
 
@@ -48,7 +48,7 @@ BとCはAの共有リポジトリをCloneし、それぞれの作業ブランチ
                   │           │
                 Clone       Clone
                   ↓           ↓
-              BのVS Code   CのVS Code
+              BのVSCode   CのVSCode
 ```
 
 ---
@@ -59,7 +59,7 @@ BとCはAの共有リポジトリをCloneし、それぞれの作業ブランチ
 
 リポジトリの管理者が開発者をCollaboratorとして追加することで、開発者も共有リポジトリへPushできるようになる。
 
-今回の演習では、Aがリポジトリの管理者となり、BとCをCollaboratorとして追加した。
+今回の演習課題では、Aがリポジトリの管理者となり、BとCをCollaboratorとして追加した。
 
 BとCはAの共有リポジトリをCloneし、それぞれ作業ブランチを作成して開発を行う。
 
@@ -164,10 +164,10 @@ main
 
 # 5. 使用した環境
 
-今回の演習では以下の環境を使用した。
+今回の演習課題では以下の環境を使用した。
 
 * GitHub
-* Visual Studio Code（VS Code）
+* Visual Studio Code（VSCode）
 * Webブラウザ
 
 ### GitHubで行った操作
@@ -179,7 +179,7 @@ main
 * Pull Requestレビュー
 * Merge
 
-### VS Codeで行った操作
+### VSCodeで行った操作
 
 * リポジトリ取得（Clone）
 * ブランチ作成・切り替え
@@ -193,7 +193,7 @@ main
 
 # 6. AがGitHub上にリモートリポジトリを作成
 
-最初にAがGitHub上で演習用のリポジトリを作成した。
+最初にAがGitHub上で演習課題用のリポジトリを作成した。
 
 このリポジトリを、今回の共同開発で使用する**共有リポジトリ**とする。
 
@@ -264,7 +264,7 @@ Hello
 
 # 9. BがリポジトリをClone
 
-BはAから共有リポジトリへのCollaborator権限を付与された後、共有リポジトリをVS CodeへCloneする。
+BはAから共有リポジトリへのCollaborator権限を付与された後、共有リポジトリをVSCodeへCloneする。
 
 ```text
  Aの共有リポジトリ
@@ -274,16 +274,16 @@ BはAから共有リポジトリへのCollaborator権限を付与された後、
   Bのローカル環境
         │
         ↓
-     VS Code
+     VSCode
 ```
 
-Clone後、BはVS Codeでリポジトリを開く。
+Clone後、BはVSCodeでリポジトリを開く。
 
 ---
 
 # 10. CがリポジトリをClone
 
-CもBと同様に、Aの共有リポジトリをVS CodeへCloneする。
+CもBと同様に、Aの共有リポジトリをVSCodeへCloneする。
 
 ```text
  Aの共有リポジトリ
@@ -293,7 +293,7 @@ CもBと同様に、Aの共有リポジトリをVS CodeへCloneする。
   Cのローカル環境
         │
         ↓
-     VS Code
+     VSCode
 ```
 
 これにより、BとCのローカル環境に同じ`main`の内容が取得される。
@@ -301,9 +301,9 @@ CもBと同様に、Aの共有リポジトリをVS CodeへCloneする。
 ```text
 共有リポジトリ
       │
-      ├────────→ BのVS Code
+      ├────────→ BのVSCode
       │
-      └────────→ CのVS Code
+      └────────→ CのVSCode
 ```
 
 ---
@@ -326,7 +326,7 @@ Bは`main`を直接編集せず、`work-branch-B`上で作業を行う。
 
 # 12. Bがindex.htmlを編集
 
-BはVS Codeで`index.html`を編集する。
+BはVSCodeで`index.html`を編集する。
 
 以下のように内容を変更する。
 
@@ -335,7 +335,7 @@ Hello
 B_編集
 ```
 
-変更後、VS Codeのソース管理画面から変更内容を確認する。
+変更後、VSCodeのソース管理画面から変更内容を確認する。
 
 ```text
 ソース管理
@@ -347,12 +347,12 @@ B_編集
 
 # 13. BがCommit・Push
 
-BはVS Codeのソース管理機能を使用して変更をCommitする。
+BはVSCodeのソース管理機能を使用して変更をCommitする。
 
 その後、共有リポジトリへ作業ブランチをPushする。
 
 ```text
-BのVS Code
+BのVSCode
      │
      │ Push
      ↓
@@ -435,7 +435,7 @@ Cは`main`を直接編集せず、`work-branch-C`上で作業を行う。
 
 # 17. Cがindex.htmlを編集
 
-CはVS Codeで`index.html`を編集する。
+CはVSCodeで`index.html`を編集する。
 
 Bの変更を残した状態でさらに内容を追加する。
 
@@ -451,12 +451,12 @@ Add Line C
 
 # 18. CがCommit・Push
 
-CはVS Codeのソース管理機能を使用して変更をCommitする。
+CはVSCodeのソース管理機能を使用して変更をCommitする。
 
 その後、共有リポジトリへ作業ブランチをPushする。
 
 ```text
-CのVS Code
+CのVSCode
      │
      │ Push
      ↓
@@ -519,7 +519,7 @@ main
 
 BとCのPull Requestが`main`へMergeされたため、Aはローカルの`main`を最新状態にする。
 
-まずVS Codeで`main`ブランチへ切り替える。
+まずVSCodeで`main`ブランチへ切り替える。
 
 その後、Pullを実行してGitHub上の最新の変更を取得する。
 
@@ -528,7 +528,7 @@ BとCのPull Requestが`main`へMergeされたため、Aはローカルの`main`
       │
       │ Pull
       ↓
-AのVS Code
+AのVSCode
       │
       ↓
  最新のmain
@@ -556,7 +556,7 @@ Aも`main`を直接編集せず、作業ブランチ上で作業を行う。
 
 # 23. Aがindex.htmlを編集
 
-AはVS Codeで`index.html`を編集する。
+AはVSCodeで`index.html`を編集する。
 
 BとCの変更を残した状態でさらに内容を追加する。
 
@@ -577,12 +577,12 @@ A_branch
 
 # 24. AがCommit・Push
 
-AはVS Codeのソース管理機能を使用して変更をCommitする。
+AはVSCodeのソース管理機能を使用して変更をCommitする。
 
 その後、共有リポジトリへ作業ブランチをPushする。
 
 ```text
-AのVS Code
+AのVSCode
      │
      │ Push
      ↓
@@ -631,7 +631,7 @@ work-branch-A
 
 Aの変更が`main`へMergeされたため、Bはローカルの`main`を最新化する。
 
-まずVS Codeで`main`ブランチへ切り替える。
+まずVSCodeで`main`ブランチへ切り替える。
 
 その後、Pullを実行する。
 
@@ -640,7 +640,7 @@ Aの変更が`main`へMergeされたため、Bはローカルの`main`を最新�
       │
       │ Pull
       ↓
-BのVS Code
+BのVSCode
       │
       ↓
  最新のmain
@@ -666,7 +666,7 @@ Bはこの作業ブランチ上で`stylesheet.css`を追加する。
 
 # 28. Bがstylesheet.cssを追加
 
-BはVS Codeで`stylesheet.css`を新しく作成する。
+BはVSCodeで`stylesheet.css`を新しく作成する。
 
 作成した`stylesheet.css`をソース管理画面で確認する。
 
@@ -685,7 +685,7 @@ Bは`stylesheet.css`をCommitする。
 その後、共有リポジトリへPushする。
 
 ```text
-BのVS Code
+BのVSCode
      │
      │ Push
      ↓
@@ -753,7 +753,7 @@ main
 
 Aの変更が`main`へMergeされたため、Cはローカルの`main`を最新化する。
 
-まずVS Codeで`main`ブランチへ切り替える。
+まずVSCodeで`main`ブランチへ切り替える。
 
 その後、Pullを実行する。
 
@@ -762,7 +762,7 @@ Aの変更が`main`へMergeされたため、Cはローカルの`main`を最新�
       │
       │ Pull
       ↓
- CのVS Code
+ CのVSCode
       │
       ↓
  最新のmain
@@ -788,7 +788,7 @@ Cはこの作業ブランチ上で`stylesheet.css`を追加する。
 
 # 34. Bがstylesheet_c.cssを追加
 
-BはVS Codeで`stylesheet_c.css`を新しく作成する。
+BはVSCodeで`stylesheet_c.css`を新しく作成する。
 
 作成した`stylesheet_c.css`をソース管理画面で確認する。
 
@@ -807,7 +807,7 @@ Cは`stylesheet_c.css`をCommitする。
 その後、共有リポジトリへPushする。
 
 ```text
-CのVS Code
+CのVSCode
      │
      │ Push
      ↓
@@ -871,7 +871,7 @@ main
 
 
 
-これで指定された一連の演習が完了した。
+これで指定された一連の演習課題が完了した。
 
 ---
 
@@ -980,7 +980,7 @@ main
 
 # 39. 共有リポジトリモデルの基本的な流れ
 
-今回の演習では、以下の流れで共同開発を行った。
+今回の演習課題では、以下の流れで共同開発を行った。
 
 ```text
 リポジトリ作成
@@ -1012,23 +1012,23 @@ Pullして最新化
 
 ---
 
-# 40. GitHubとVS Codeの役割
+# 40. GitHubとVSCodeの役割
 
-今回の演習では、GitHubとVS Codeを以下のように使い分けた。
+今回の演習課題では、GitHubとVSCodeを以下のように使い分けた。
 
 | 操作             | 使用した環境  |
 | -------------- | ------- |
 | リポジトリ作成        | GitHub  |
 | Collaborator追加 | GitHub  |
-| リポジトリ取得（Clone） | VS Code |
-| ブランチ作成         | VS Code |
-| ブランチ切り替え       | VS Code |
-| ファイル編集         | VS Code |
-| ファイル追加         | VS Code |
-| 変更確認           | VS Code |
-| Commit         | VS Code |
-| Push           | VS Code |
-| Pull           | VS Code |
+| リポジトリ取得（Clone） | VSCode |
+| ブランチ作成         | VSCode |
+| ブランチ切り替え       | VSCode |
+| ファイル編集         | VSCode |
+| ファイル追加         | VSCode |
+| 変更確認           | VSCode |
+| Commit         | VSCode |
+| Push           | VSCode |
+| Pull           | VSCode |
 | Pull Request作成 | GitHub  |
 | Pull Request確認 | GitHub  |
 | コードレビュー        | GitHub  |
@@ -1038,7 +1038,7 @@ Pullして最新化
 
 # 41. Git Graphによる履歴確認
 
-今回の演習では、A・B・Cそれぞれが作業ブランチを作成し、Pull Requestを作成して`main`へ変更を取り込んだ。
+今回の演習課題では、A・B・Cそれぞれが作業ブランチを作成し、Pull Requestを作成して`main`へ変更を取り込んだ。
 
 Git Graphを確認すると、複数の作業ブランチが作成され、Pull RequestによるMergeが行われた履歴を確認できる。
 
@@ -1052,7 +1052,7 @@ Git Graphには、例えば以下のようなMerge履歴が表示されている
 
 # 42. スクリーンショット
 
-実際の演習で使用した画面を以下に掲載する。
+実際の演習課題で使用した画面を以下に掲載する。
 
 ## GitHub
 
@@ -1076,7 +1076,7 @@ Git Graphには、例えば以下のようなMerge履歴が表示されている
 
 ### ③ ブランチ作成
 
-【VS Codeのブランチ操作画面】
+【VSCodeのブランチ操作画面】
 
 <img width="886" height="952" alt="image" src="https://github.com/user-attachments/assets/c3ac8cb5-aa62-4cb9-8fd2-35a471b2ffb4" />
 
@@ -1085,7 +1085,7 @@ Git Graphには、例えば以下のようなMerge履歴が表示されている
 
 # 43. まとめ
 
-今回の演習では、A・B・Cの3人で**共有リポジトリモデル**による共同開発を行った。
+今回の演習課題では、A・B・Cの3人で**共有リポジトリモデル**による共同開発を行った。
 
 AがGitHub上にリポジトリを作成し、BとCをCollaboratorとして追加した。
 
@@ -1103,9 +1103,9 @@ BがPull Requestを作成し、Aがレビュー・Mergeした。
 
 最後にCがローカルの`main`を最新化し、作業ブランチを作成して`stylesheet_c.css`を追加した。
 
-CがPull Requestを作成し、Aがレビュー・Mergeすることで、指定された一連の演習が完了した。
+CがPull Requestを作成し、Aがレビュー・Mergeすることで、指定された一連の演習課題が完了した。
 
-今回の演習で行った基本的な流れは以下の通りである。
+今回の演習課題で行った基本的な流れは以下の通りである。
 
 ```text
 Collaborator追加
@@ -1131,4 +1131,4 @@ Collaborator追加
 
 また、共有リポジトリモデルでは、**開発者ごとにForkを作成する必要がなく、同じ共有リポジトリを使用して共同開発を行う**ことが特徴である。
 
-この演習を通して、GitHubのリポジトリ管理、Collaborator管理、ブランチ作成、Commit、Push、Pull、Pull Request、レビュー、Mergeという一連の共同開発の流れを実践した。
+この演習課題を通して、GitHubのリポジトリ管理、Collaborator管理、ブランチ作成、Commit、Push、Pull、Pull Request、レビュー、Mergeという一連の共同開発の流れを実践した。
