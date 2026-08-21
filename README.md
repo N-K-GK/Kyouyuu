@@ -328,11 +328,11 @@ Bは`main`を直接編集せず、`work-branch-B`上で作業を行う。
 
 BはVS Codeで`index.html`を編集する。
 
-例えば、以下のように内容を変更する。
+以下のように内容を変更する。
 
 ```html
 Hello
-World
+B_編集
 ```
 
 変更後、VS Codeのソース管理画面から変更内容を確認する。
@@ -437,12 +437,12 @@ Cは`main`を直接編集せず、`work-branch-C`上で作業を行う。
 
 CはVS Codeで`index.html`を編集する。
 
-例えば、Bの変更を残した状態でさらに内容を追加する。
+Bの変更を残した状態でさらに内容を追加する。
 
 ```html
 Hello
-World
-GitHub
+B_編集
+Add Line C
 ```
 
 編集後、変更内容を確認する。
@@ -558,13 +558,14 @@ Aも`main`を直接編集せず、作業ブランチ上で作業を行う。
 
 AはVS Codeで`index.html`を編集する。
 
-例えば、BとCの変更を残した状態でさらに内容を追加する。
+BとCの変更を残した状態でさらに内容を追加する。
 
 ```html
 Hello
-World
-GitHub
-A
+B_編集
+Add Line C
+
+A_branch
 ```
 
 編集後、変更内容を確認する。
@@ -667,12 +668,10 @@ Bはこの作業ブランチ上で`stylesheet.css`を追加する。
 
 BはVS Codeで`stylesheet.css`を新しく作成する。
 
-例えば、以下のようなCSSを記述する。
+以下のようなCSSを記述する。
 
 ```css
-body {
-    font-family: sans-serif;
-}
+
 ```
 
 作成した`stylesheet.css`をソース管理画面で確認する。
@@ -754,13 +753,141 @@ main
 <img width="886" height="919" alt="image" src="https://github.com/user-attachments/assets/318addd2-7417-42f7-a2e2-2d77b72ebc5a" />
 
 
+---
+
+# 32. Cがローカルのmainを最新化
+
+Aの変更が`main`へMergeされたため、Cはローカルの`main`を最新化する。
+
+まずVS Codeで`main`ブランチへ切り替える。
+
+その後、Pullを実行する。
+
+```text
+共有リポジトリ
+      │
+      │ Pull
+      ↓
+CのVS Code
+      │
+      ↓
+最新のmain
+```
+
+---
+
+# 33. Cが作業ブランチを作成
+
+Cは最新化した`main`を元に、新しい作業ブランチを作成する。
+
+```text
+Cのローカルリポジトリ
+│
+├── main
+│
+└── work-branch-C-css
+```
+
+Cはこの作業ブランチ上で`stylesheet.css`を追加する。
+
+---
+
+# 34. Bがstylesheet_c.cssを追加
+
+BはVS Codeで`stylesheet_c.css`を新しく作成する。
+
+以下のようなCSSを記述する。
+
+```css
+
+```
+
+作成した`stylesheet_c.css`をソース管理画面で確認する。
+
+```text
+ソース管理
+└── 変更
+    └── stylesheet_c.css
+```
+
+---
+
+# 35. CがCommit・Push
+
+Cは`stylesheet_c.css`をCommitする。
+
+その後、共有リポジトリへPushする。
+
+```text
+CのVS Code
+     │
+     │ Push
+     ↓
+共有リポジトリ
+     │
+     └── work-branch-C-css
+```
+
+---
+
+# 36. CがPull Requestを作成
+
+CはGitHubブラウザから、`work-branch-C-css`から共有リポジトリの`main`へのPull Requestを作成する。
+
+```text
+work-branch-C-css
+        │
+        ↓
+Pull Request
+        │
+        ↓
+共有リポジトリ
+        │
+        ↓
+      main
+```
+
+---
+
+# 37. AがCのPull Requestをレビュー・Merge
+
+AはGitHubブラウザからCのPull Requestを確認する。
+
+`stylesheet_c.css`の内容を確認し、問題がないことを確認する。
+
+その後、Pull Requestを承認して共有リポジトリの`main`へMergeする。
+
+```text
+C
+│
+↓
+work-branch-C-css
+│
+↓
+Pull Request
+│
+↓
+Aがレビュー
+│
+↓
+Merge
+│
+↓
+main
+```
+
+【Merge画面】
+
+<img width="886" height="919" alt="image" src="https://github.com/user-attachments/assets/318addd2-7417-42f7-a2e2-2d77b72ebc5a" />
+
+
 
 
 これで指定された一連の演習が完了した。
 
 ---
 
-# 32. 今回の作業全体
+# 38. 今回の作業全体
 
 今回の3人での共有リポジトリモデルによる作業をまとめると、以下のようになる。
 
@@ -832,36 +959,38 @@ main
                      main
                        │
                        ↓
-                   BがPull
-                       │
-                       ↓
-                作業ブランチ作成
-                       │
-                       ↓
-             stylesheet.css追加
-                       │
-                       ↓
-                    Commit
-                       │
-                       ↓
-                     Push
-                       │
-                       ↓
-                      PR
-                       │
-                       ↓
-                 Aがレビュー
-                       │
-                       ↓
-                    Merge
-                       │
+              ┌────────┴────────┐
+              ↓                 ↓
+              B                 C
+           開発者1           開発者2
+              │                 │
+            Pull               Pull
+              │                 │
+              ↓                 ↓
+             main              main
+              │                 │
+        作業ブランチ作成       作業ブランチ作成
+              │                 │
+      stylesheet.css追加   stylesheet_c.css追加
+              │                 │
+           Commit            Commit
+              │                 │
+            Push              Push
+              │                 │
+              ↓                 ↓
+             PR                PR
+              │                 │
+              ↓                 ↓
+            Merge             Merge
+              │                 │
+              └────────┬────────┘
                        ↓
                      main
 ```
 
 ---
 
-# 33. 共有リポジトリモデルの基本的な流れ
+# 39. 共有リポジトリモデルの基本的な流れ
 
 今回の演習では、以下の流れで共同開発を行った。
 
@@ -895,7 +1024,7 @@ Pullして最新化
 
 ---
 
-# 34. GitHubとVS Codeの役割
+# 40. GitHubとVS Codeの役割
 
 今回の演習では、GitHubとVS Codeを以下のように使い分けた。
 
@@ -919,7 +1048,7 @@ Pullして最新化
 
 ---
 
-# 35. Git Graphによる履歴確認
+# 41. Git Graphによる履歴確認
 
 今回の演習では、A・B・Cそれぞれが作業ブランチを作成し、Pull Requestを作成して`main`へ変更を取り込んだ。
 
@@ -941,7 +1070,7 @@ Merge pull request
 
 ---
 
-# 36. スクリーンショット
+# 42. スクリーンショット
 
 実際の演習で使用した画面を以下に掲載する。
 
@@ -981,7 +1110,7 @@ Merge pull request
 
 ---
 
-# 37. まとめ
+# 43. まとめ
 
 今回の演習では、A・B・Cの3人で**共有リポジトリモデル**による共同開発を行った。
 
@@ -997,7 +1126,11 @@ AはそれぞれのPull Requestの内容をレビューし、問題がなけれ�
 
 最後にBがローカルの`main`を最新化し、作業ブランチを作成して`stylesheet.css`を追加した。
 
-BがPull Requestを作成し、Aがレビュー・Mergeすることで、指定された一連の演習が完了した。
+BがPull Requestを作成し、Aがレビュー・Mergeした。
+
+最後にCがローカルの`main`を最新化し、作業ブランチを作成して`stylesheet_c.css`を追加した。
+
+CがPull Requestを作成し、Aがレビュー・Mergeすることで、指定された一連の演習が完了した。
 
 今回の演習で行った基本的な流れは以下の通りである。
 
