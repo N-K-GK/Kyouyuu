@@ -145,7 +145,7 @@ Cも同様に共有リポジトリへPushする。
             ↓
       Aの元リポジトリ
             ↓
-           main
+          main
 ```
 
 共有リポジトリモデルでは、**BやCがCollaboratorとして権限を与えられているため、Aの共有リポジトリへ直接Pushできる**点が特徴である。
@@ -287,9 +287,9 @@ CもBと同様に、Aの共有リポジトリをVSCodeへCloneする。
 
 ```text
 共有リポジトリ
-      ↓
+      |
       ├────────➝ BのVSCode
-      ↓
+      |
       └────────➝ CのVSCode
 ```
 
@@ -301,9 +301,9 @@ Bは`main`ブランチを元に作業ブランチを作成する。
 
 ```text
 Bのローカルリポジトリ
-↓
+|
 ├── main
-↓
+|
 └── work-branch-B
 ```
 
@@ -389,7 +389,7 @@ work-branch-B
       ↓
     Merge
       ↓
-     main
+    main
 ```
 
 ---
@@ -402,9 +402,9 @@ Cはローカルの`main`をPullして最新化した後、作業ブランチを
 
 ```text
 Cのローカルリポジトリ
-↓
+|
 ├── main
-↓
+|
 └── work-branch-C
 ```
 
@@ -436,8 +436,8 @@ CはVSCodeのソース管理機能を使用して変更をCommitする。
 
 ```text
  CのVSCode
-     ↓
-     ↓ Push
+     |
+     | Push
      ↓
 共有リポジトリ
      ↓
@@ -481,7 +481,7 @@ Pull Request
       ↓
     Merge
       ↓
-     main
+    main
 ```
 
 ---
@@ -514,9 +514,9 @@ Aは最新化した`main`を元に、新しい作業ブランチを作成する�
 
 ```text
 Aのローカルリポジトリ
-↓
+|
 ├── main
-↓
+|
 └── work-branch-A
 ```
 
@@ -572,7 +572,7 @@ work-branch-A
       ↓
  Pull Request
       ↓
-     main
+    main
 ```
 
 変更内容を確認した後、問題がなければPull RequestをMergeする。
@@ -586,7 +586,7 @@ work-branch-A
       ↓
     Merge
       ↓
-     main
+    main
 ```
 
 ---
@@ -617,9 +617,9 @@ Bは最新化した`main`を元に、新しい作業ブランチを作成する�
 
 ```text
 Bのローカルリポジトリ
-↓
+|
 ├── main
-↓
+|
 └── work-branch-B-css
 ```
 
@@ -670,7 +670,7 @@ work-branch-B-css
         ↓
    共有リポジトリ
         ↓
-       main
+      main
 ```
 
 ---
@@ -694,7 +694,7 @@ AはGitHubブラウザからBのPull Requestを確認する。
         ↓
       Merge
         ↓
-       main
+      main
 ```
 
 【Merge画面】
@@ -730,9 +730,9 @@ Cは最新化した`main`を元に、新しい作業ブランチを作成する�
 
 ```text
 Cのローカルリポジトリ
-↓
+|
 ├── main
-↓
+|
 └── work-branch-C-css
 ```
 
@@ -783,7 +783,7 @@ work-branch-C-css
         ↓
    共有リポジトリ
         ↓
-       main
+      main
 ```
 
 ---
@@ -807,7 +807,7 @@ work-branch-C-css
         ↓
       Merge
         ↓
-       main
+      main
 ```
 
 【Merge画面】
@@ -833,7 +833,7 @@ work-branch-C-css
                         ↓
                   index.html作成
                         ↓
-                       main
+                      main
                         |
               ┌─────────┴────────┐
               ↓                  ↓
@@ -842,7 +842,7 @@ work-branch-C-css
               ↓                  ↓
             Clone              Clone
               ↓                  ↓
-             main               main
+            main               main
               ↓                  ↓
          ブランチ作成        ブランチ作成
               ↓                  ↓
@@ -885,7 +885,7 @@ work-branch-C-css
               ↓                   ↓
              Pull                Pull
               ↓                   ↓
-             main                main
+            main                main
               ↓                   ↓
         作業ブランチ作成      作業ブランチ作成
               ↓                   ↓
@@ -931,7 +931,7 @@ B・CをCollaboratorに追加
           ↓
         Merge
           ↓
-         main
+        main
           ↓
     Pullして最新化
           ↓
