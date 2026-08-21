@@ -39,7 +39,7 @@ BとCはAの共有リポジトリをCloneし、それぞれの作業ブランチ
                     リード役
                        │
                        ↓
-                共有リポジトリ
+                  共有リポジトリ
                   │           │
           Collaborator   Collaborator
                   ↓           ↓
@@ -66,20 +66,20 @@ BとCはAの共有リポジトリをCloneし、それぞれ作業ブランチを
 変更内容は共有リポジトリへPushした後、Pull Requestを作成してAにレビューを依頼する。
 
 ```text
-                         A
+                       A
                     リード役
                        │
                        ↓
-                共有リポジトリ
+                 共有リポジトリ
                  /           \
                 /             \
                ↓               ↓
-              B                 C
-           開発者1           開発者2
+               B               C
+            開発者1          開発者2
                │               │
           作業ブランチ      作業ブランチ
                │               │
-             編集            編集
+             編集             編集
                │               │
             Commit          Commit
                │               │
@@ -90,7 +90,7 @@ BとCはAの共有リポジトリをCloneし、それぞれ作業ブランチを
                │               │
                └───────┬───────┘
                        ↓
-                  AがReview
+                   AがReview
                        ↓
                      Merge
                        ↓
@@ -107,10 +107,10 @@ BとCはAの共有リポジトリをCloneし、それぞれ作業ブランチを
 B ──────────┐
             │ Push
             ↓
-       共有リポジトリ
+      共有リポジトリ
             │
             ↓
-           PR
+            PR
             │
             ↓
        Aがレビュー
@@ -125,10 +125,10 @@ Cも同様に共有リポジトリへPushする。
 C ──────────┐
             │ Push
             ↓
-       共有リポジトリ
+      共有リポジトリ
             │
             ↓
-           PR
+            PR
             │
             ↓
        Aがレビュー
@@ -198,7 +198,7 @@ main
 このリポジトリを、今回の共同開発で使用する**共有リポジトリ**とする。
 
 ```text
-AのGitHubアカウント
+  AのGitHubアカウント
         │
         ↓
    リポジトリ作成
@@ -219,7 +219,7 @@ GitHubのリポジトリ画面からCollaboratorの設定を開き、それぞ�
              A
              │
              ↓
-      共有リポジトリ
+       共有リポジトリ
          /       \
         /         \
        ↓           ↓
@@ -267,11 +267,11 @@ Hello
 BはAから共有リポジトリへのCollaborator権限を付与された後、共有リポジトリをVS CodeへCloneする。
 
 ```text
-Aの共有リポジトリ
+ Aの共有リポジトリ
         │
         │ Clone
         ↓
-Bのローカル環境
+  Bのローカル環境
         │
         ↓
      VS Code
@@ -286,11 +286,11 @@ Clone後、BはVS Codeでリポジトリを開く。
 CもBと同様に、Aの共有リポジトリをVS CodeへCloneする。
 
 ```text
-Aの共有リポジトリ
+ Aの共有リポジトリ
         │
         │ Clone
         ↓
-Cのローカル環境
+  Cのローカル環境
         │
         ↓
      VS Code
@@ -375,7 +375,7 @@ BはGitHubのWebブラウザからPull Requestを作成する。
 work-branch-B
       │
       ↓
-Pull Request
+ Pull Request
       │
       ↓
 共有リポジトリ
@@ -475,7 +475,7 @@ CはGitHubブラウザから、`work-branch-C`から共有リポジトリの`mai
 work-branch-C
       │
       ↓
-Pull Request
+ Pull Request
       │
       ↓
 共有リポジトリ
@@ -531,7 +531,7 @@ BとCのPull Requestが`main`へMergeされたため、Aはローカルの`main`
 AのVS Code
       │
       ↓
-最新のmain
+ 最新のmain
 ```
 
 これにより、BとCが行った変更がAのローカル環境にも反映される。
@@ -601,10 +601,10 @@ Aは自分の作業ブランチから`main`へのPull Requestを作成する。
 work-branch-A
       │
       ↓
-Pull Request
+ Pull Request
       │
       ↓
-main
+     main
 ```
 
 変更内容を確認した後、問題がなければPull RequestをMergeする。
@@ -613,16 +613,16 @@ main
 work-branch-A
       │
       ↓
-Pull Request
+ Pull Request
       │
       ↓
-レビュー
+   レビュー
       │
       ↓
-Merge
+    Merge
       │
       ↓
-main
+     main
 ```
 
 ---
@@ -643,7 +643,7 @@ Aの変更が`main`へMergeされたため、Bはローカルの`main`を最新�
 BのVS Code
       │
       ↓
-最新のmain
+ 最新のmain
 ```
 
 ---
@@ -667,12 +667,6 @@ Bはこの作業ブランチ上で`stylesheet.css`を追加する。
 # 28. Bがstylesheet.cssを追加
 
 BはVS Codeで`stylesheet.css`を新しく作成する。
-
-以下のようなCSSを記述する。
-
-```css
-
-```
 
 作成した`stylesheet.css`をソース管理画面で確認する。
 
@@ -710,13 +704,13 @@ BはGitHubブラウザから、`work-branch-B-css`から共有リポジトリの
 work-branch-B-css
         │
         ↓
-Pull Request
+   Pull Request
         │
         ↓
-共有リポジトリ
+   共有リポジトリ
         │
         ↓
-      main
+       main
 ```
 
 ---
@@ -768,10 +762,10 @@ Aの変更が`main`へMergeされたため、Cはローカルの`main`を最新�
       │
       │ Pull
       ↓
-CのVS Code
+ CのVS Code
       │
       ↓
-最新のmain
+ 最新のmain
 ```
 
 ---
@@ -795,12 +789,6 @@ Cはこの作業ブランチ上で`stylesheet.css`を追加する。
 # 34. Bがstylesheet_c.cssを追加
 
 BはVS Codeで`stylesheet_c.css`を新しく作成する。
-
-以下のようなCSSを記述する。
-
-```css
-
-```
 
 作成した`stylesheet_c.css`をソース管理画面で確認する。
 
@@ -838,13 +826,13 @@ CはGitHubブラウザから、`work-branch-C-css`から共有リポジトリの
 work-branch-C-css
         │
         ↓
-Pull Request
+   Pull Request
         │
         ↓
-共有リポジトリ
+   共有リポジトリ
         │
         ↓
-      main
+       main
 ```
 
 ---
@@ -892,7 +880,7 @@ main
 今回の3人での共有リポジトリモデルによる作業をまとめると、以下のようになる。
 
 ```text
-                         A
+                       A
                     リード役
                        │
                        ↓
@@ -917,7 +905,7 @@ main
               ↓                 ↓
              main              main
               │                 │
-        ブランチ作成       ブランチ作成
+         ブランチ作成       ブランチ作成
               │                 │
         index.html編集     index.html編集
               │                 │
@@ -930,7 +918,7 @@ main
               │                 │
               └────────┬────────┘
                        ↓
-                  Aがレビュー
+                   Aがレビュー
                        ↓
                      Merge
                        ↓
@@ -952,7 +940,7 @@ main
                      Push
                        │
                        ↓
-                      PR
+                       PR
                        ↓
                     Merge
                        ↓
@@ -964,12 +952,12 @@ main
               B                 C
            開発者1           開発者2
               │                 │
-            Pull               Pull
+             Pull              Pull
               │                 │
               ↓                 ↓
              main              main
               │                 │
-        作業ブランチ作成       作業ブランチ作成
+        作業ブランチ作成    作業ブランチ作成
               │                 │
       stylesheet.css追加   stylesheet_c.css追加
               │                 │
@@ -999,23 +987,23 @@ main
       ↓
 B・CをCollaboratorに追加
       ↓
-B・CがClone
+ B・CがClone
       ↓
 作業ブランチ作成
       ↓
 ファイル編集
       ↓
-Commit
+    Commit
       ↓
 共有リポジトリへPush
       ↓
-Pull Request
+ Pull Request
       ↓
-Aがレビュー
+  Aがレビュー
       ↓
-Merge
+    Merge
       ↓
-main
+     main
       ↓
 Pullして最新化
       ↓
@@ -1124,7 +1112,7 @@ AはそれぞれのPull Requestの内容をレビューし、問題がなけれ�
 
 その後、Aはローカルの`main`を最新化して作業ブランチを作成し、`index.html`を編集してPull Requestを作成・Mergeした。
 
-最後にBがローカルの`main`を最新化し、作業ブランチを作成して`stylesheet.css`を追加した。
+Bがローカルの`main`を最新化し、作業ブランチを作成して`stylesheet.css`を追加した。
 
 BがPull Requestを作成し、Aがレビュー・Mergeした。
 
@@ -1137,23 +1125,23 @@ CがPull Requestを作成し、Aがレビュー・Mergeすることで、指定�
 ```text
 Collaborator追加
       ↓
-Clone
+    Clone
       ↓
 作業ブランチ作成
       ↓
-ファイル編集
+ ファイル編集
       ↓
-Commit
+    Commit
       ↓
 共有リポジトリへPush
       ↓
-Pull Request
+ Pull Request
       ↓
-レビュー
+    レビュー
       ↓
-Merge
+    Merge
       ↓
-main
+    main
 ```
 
 また、共有リポジトリモデルでは、**開発者ごとにForkを作成する必要がなく、同じ共有リポジトリを使用して共同開発を行う**ことが特徴である。
