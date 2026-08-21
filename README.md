@@ -35,7 +35,7 @@ AがGitHub上に共有リポジトリを作成し、BとCをCollaboratorとし�
 BとCはAの共有リポジトリをCloneし、それぞれの作業ブランチで開発を行う。
 
 ```text
-                         A
+                       A
                     リード役
                        │
                        ↓
