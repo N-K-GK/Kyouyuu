@@ -1044,15 +1044,7 @@ Git Graphを確認すると、複数の作業ブランチが作成され、Pull 
 
 Git Graphには、例えば以下のようなMerge履歴が表示されている。
 
-```text
-Merge pull request
-        ↓
-      main
-        ↑
-       PR
-        ↑
-   作業ブランチ
-```
+<img width="467" height="520" alt="image" src="https://github.com/user-attachments/assets/99d1a3bd-91dd-4098-9667-81e6df21f4ff" />
 
 この履歴から、作業ブランチで変更を行い、Pull Requestを経由して`main`へ変更を取り込んだことが確認できる。
 
@@ -1087,13 +1079,6 @@ Merge pull request
 【VS Codeのブランチ操作画面】
 
 <img width="886" height="952" alt="image" src="https://github.com/user-attachments/assets/c3ac8cb5-aa62-4cb9-8fd2-35a471b2ffb4" />
-
-
-### ④ ソース管理
-
-【VS Codeのソース管理画面】
-
-<img width="467" height="520" alt="image" src="https://github.com/user-attachments/assets/99d1a3bd-91dd-4098-9667-81e6df21f4ff" />
 
 
 ---
