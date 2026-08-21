@@ -35,20 +35,21 @@ AがGitHub上に共有リポジトリを作成し、BとCをCollaboratorとし�
 BとCはAの共有リポジトリをCloneし、それぞれの作業ブランチで開発を行う。
 
 ```text
-                       A
-                    リード役
-                       │
-                       ↓
+                        A
+                     リード役
+                        ↓
                   共有リポジトリ
-                  │           │
-          Collaborator   Collaborator
-                  ↓           ↓
-                  B           C
-               開発者1       開発者2
-                  │           │
-                Clone       Clone
-                  ↓           ↓
-              BのVSCode   CのVSCode
+                        |
+               ┌────────┴────────┐
+               ↓                 ↓
+         Collaborator      Collaborator
+               ↓                 ↓
+               B                 C
+             開発者1           開発者2
+               ↓                 ↓
+             Clone             Clone
+               ↓                 ↓
+           BのVSCode         CのVSCode
 ```
 
 ---
@@ -68,26 +69,24 @@ BとCはAの共有リポジトリをCloneし、それぞれ作業ブランチを
 ```text
                        A
                     リード役
-                       │
                        ↓
                  共有リポジトリ
-                 /           \
-                /             \
+                       |
+               ┌───────┴───────┐
                ↓               ↓
                B               C
             開発者1          開発者2
-               │               │
+               ↓               ↓
           作業ブランチ      作業ブランチ
-               │               │
+               ↓               ↓
              編集             編集
-               │               │
+               ↓               ↓
             Commit          Commit
-               │               │
+               ↓               ↓
              Push            Push
-               │               │
                ↓               ↓
               PR              PR
-               │               │
+               |               |
                └───────┬───────┘
                        ↓
                    AがReview
@@ -104,17 +103,15 @@ BとCはAの共有リポジトリをCloneし、それぞれ作業ブランチを
 ### 共有リポジトリモデル
 
 ```text
-B ──────────┐
-            │ Push
+            B
+            |
+            | Push
             ↓
       共有リポジトリ
-            │
             ↓
             PR
-            │
             ↓
-       Aがレビュー
-            │
+        Aがレビュー
             ↓
           main
 ```
@@ -122,17 +119,15 @@ B ──────────┐
 Cも同様に共有リポジトリへPushする。
 
 ```text
-C ──────────┐
-            │ Push
+            C
+            |
+            | Push
             ↓
       共有リポジトリ
-            │
             ↓
             PR
-            │
             ↓
-       Aがレビュー
-            │
+        Aがレビュー
             ↓
           main
 ```
@@ -140,20 +135,17 @@ C ──────────┐
 ### フォークとプルモデル
 
 ```text
-B
-│
-│ Push
-↓
-B自身のFork
-│
-↓
-Pull Request
-│
-↓
-Aの元リポジトリ
-│
-↓
-main
+            B
+            |
+            | Push
+            ↓
+        B自身のFork
+            ↓
+       Pull Request
+            ↓
+      Aの元リポジトリ
+            ↓
+           main
 ```
 
 共有リポジトリモデルでは、**BやCがCollaboratorとして権限を与えられているため、Aの共有リポジトリへ直接Pushできる**点が特徴である。
@@ -199,12 +191,10 @@ main
 
 ```text
   AのGitHubアカウント
-        │
-        ↓
+         ↓
    リポジトリ作成
-        │
-        ↓
-  共有リポジトリ
+         ↓
+   共有リポジトリ
 ```
 
 ---
@@ -217,12 +207,11 @@ GitHubのリポジトリ画面からCollaboratorの設定を開き、それぞ�
 
 ```text
              A
-             │
              ↓
        共有リポジトリ
-         /       \
-        /         \
-       ↓           ↓
+             |
+      ┌──────┴──────┐
+      ↓             ↓
       B             C
 ```
 
@@ -268,11 +257,10 @@ BはAから共有リポジトリへのCollaborator権限を付与された後、
 
 ```text
  Aの共有リポジトリ
-        │
-        │ Clone
+        |
+        | Clone
         ↓
   Bのローカル環境
-        │
         ↓
      VSCode
 ```
@@ -287,11 +275,10 @@ CもBと同様に、Aの共有リポジトリをVSCodeへCloneする。
 
 ```text
  Aの共有リポジトリ
-        │
-        │ Clone
+        |
+        | Clone
         ↓
   Cのローカル環境
-        │
         ↓
      VSCode
 ```
@@ -300,10 +287,10 @@ CもBと同様に、Aの共有リポジトリをVSCodeへCloneする。
 
 ```text
 共有リポジトリ
-      │
-      ├────────→ BのVSCode
-      │
-      └────────→ CのVSCode
+      ↓
+      ├────────➝ BのVSCode
+      ↓
+      └────────➝ CのVSCode
 ```
 
 ---
@@ -314,9 +301,9 @@ Bは`main`ブランチを元に作業ブランチを作成する。
 
 ```text
 Bのローカルリポジトリ
-│
+↓
 ├── main
-│
+↓
 └── work-branch-B
 ```
 
@@ -352,13 +339,13 @@ BはVSCodeのソース管理機能を使用して変更をCommitする。
 その後、共有リポジトリへ作業ブランチをPushする。
 
 ```text
-BのVSCode
-     │
-     │ Push
+　BのVSCode
+     |
+     | Push
      ↓
 共有リポジトリ
-     │
-     └── work-branch-B
+     ↓
+work-branch-B
 ```
 
 共有リポジトリモデルでは、BにCollaborator権限があるため、Bが共有リポジトリへPushできる。
@@ -373,13 +360,10 @@ BはGitHubのWebブラウザからPull Requestを作成する。
 
 ```text
 work-branch-B
-      │
       ↓
  Pull Request
-      │
       ↓
 共有リポジトリ
-      │
       ↓
     main
 ```
@@ -395,22 +379,17 @@ AはGitHubブラウザからBが作成したPull Requestを確認する。
 問題がなければPull RequestをMergeし、共有リポジトリの`main`へ変更を取り込む。
 
 ```text
-B
-│
-↓
+      B
+      ↓
 work-branch-B
-│
-↓
-Pull Request
-│
-↓
-Aがレビュー
-│
-↓
-Merge
-│
-↓
-main
+      ↓
+ Pull Request
+      ↓
+  Aがレビュー
+      ↓
+    Merge
+      ↓
+     main
 ```
 
 ---
@@ -423,9 +402,9 @@ Cはローカルの`main`をPullして最新化した後、作業ブランチを
 
 ```text
 Cのローカルリポジトリ
-│
+↓
 ├── main
-│
+↓
 └── work-branch-C
 ```
 
@@ -456,13 +435,13 @@ CはVSCodeのソース管理機能を使用して変更をCommitする。
 その後、共有リポジトリへ作業ブランチをPushする。
 
 ```text
-CのVSCode
-     │
-     │ Push
+ CのVSCode
+     ↓
+     ↓ Push
      ↓
 共有リポジトリ
-     │
-     └── work-branch-C
+     ↓
+work-branch-C
 ```
 
 ---
@@ -473,13 +452,10 @@ CはGitHubブラウザから、`work-branch-C`から共有リポジトリの`mai
 
 ```text
 work-branch-C
-      │
       ↓
  Pull Request
-      │
       ↓
 共有リポジトリ
-      │
       ↓
     main
 ```
@@ -495,22 +471,17 @@ Cが変更した`index.html`の内容を確認し、問題がないことを確�
 その後、Pull Requestを承認して共有リポジトリの`main`へMergeする。
 
 ```text
-C
-│
-↓
+      C
+      ↓
 work-branch-C
-│
-↓
+      ↓
 Pull Request
-│
-↓
-Aがレビュー
-│
-↓
-Merge
-│
-↓
-main
+      ↓
+  Aがレビュー
+      ↓
+    Merge
+      ↓
+     main
 ```
 
 ---
@@ -525,11 +496,10 @@ BとCのPull Requestが`main`へMergeされたため、Aはローカルの`main`
 
 ```text
 共有リポジトリ
-      │
-      │ Pull
+      |
+      | Pull
       ↓
-AのVSCode
-      │
+  AのVSCode
       ↓
  最新のmain
 ```
@@ -544,9 +514,9 @@ Aは最新化した`main`を元に、新しい作業ブランチを作成する�
 
 ```text
 Aのローカルリポジトリ
-│
+↓
 ├── main
-│
+↓
 └── work-branch-A
 ```
 
@@ -583,12 +553,12 @@ AはVSCodeのソース管理機能を使用して変更をCommitする。
 
 ```text
 AのVSCode
-     │
-     │ Push
+     |
+     | Push
      ↓
 共有リポジトリ
-     │
-     └── work-branch-A
+     ↓
+work-branch-A
 ```
 
 ---
@@ -599,10 +569,8 @@ Aは自分の作業ブランチから`main`へのPull Requestを作成する。
 
 ```text
 work-branch-A
-      │
       ↓
  Pull Request
-      │
       ↓
      main
 ```
@@ -611,16 +579,12 @@ work-branch-A
 
 ```text
 work-branch-A
-      │
       ↓
  Pull Request
-      │
       ↓
    レビュー
-      │
       ↓
     Merge
-      │
       ↓
      main
 ```
@@ -637,11 +601,10 @@ Aの変更が`main`へMergeされたため、Bはローカルの`main`を最新�
 
 ```text
 共有リポジトリ
-      │
-      │ Pull
+      |
+      | Pull
       ↓
-BのVSCode
-      │
+ BのVSCode
       ↓
  最新のmain
 ```
@@ -654,9 +617,9 @@ Bは最新化した`main`を元に、新しい作業ブランチを作成する�
 
 ```text
 Bのローカルリポジトリ
-│
+↓
 ├── main
-│
+↓
 └── work-branch-B-css
 ```
 
@@ -685,13 +648,13 @@ Bは`stylesheet.css`をCommitする。
 その後、共有リポジトリへPushする。
 
 ```text
-BのVSCode
-     │
-     │ Push
-     ↓
-共有リポジトリ
-     │
-     └── work-branch-B-css
+   BのVSCode
+       |
+       | Push
+       ↓
+ 共有リポジトリ
+       ↓
+work-branch-B-css
 ```
 
 ---
@@ -702,13 +665,10 @@ BはGitHubブラウザから、`work-branch-B-css`から共有リポジトリの
 
 ```text
 work-branch-B-css
-        │
         ↓
    Pull Request
-        │
         ↓
    共有リポジトリ
-        │
         ↓
        main
 ```
@@ -724,22 +684,17 @@ AはGitHubブラウザからBのPull Requestを確認する。
 その後、Pull Requestを承認して共有リポジトリの`main`へMergeする。
 
 ```text
-B
-│
-↓
-work-branch-B-css
-│
-↓
-Pull Request
-│
-↓
-Aがレビュー
-│
-↓
-Merge
-│
-↓
-main
+        B
+        ↓
+ work-branch-B-css
+        ↓
+  Pull Request
+        ↓
+    Aがレビュー
+        ↓
+      Merge
+        ↓
+       main
 ```
 
 【Merge画面】
@@ -759,11 +714,10 @@ Aの変更が`main`へMergeされたため、Cはローカルの`main`を最新�
 
 ```text
 共有リポジトリ
-      │
-      │ Pull
+      |
+      | Pull
       ↓
  CのVSCode
-      │
       ↓
  最新のmain
 ```
@@ -776,9 +730,9 @@ Cは最新化した`main`を元に、新しい作業ブランチを作成する�
 
 ```text
 Cのローカルリポジトリ
-│
+↓
 ├── main
-│
+↓
 └── work-branch-C-css
 ```
 
@@ -807,13 +761,13 @@ Cは`stylesheet_c.css`をCommitする。
 その後、共有リポジトリへPushする。
 
 ```text
-CのVSCode
-     │
-     │ Push
-     ↓
-共有リポジトリ
-     │
-     └── work-branch-C-css
+  CのVSCode
+       |
+       | Push
+       ↓
+  共有リポジトリ
+       ↓
+work-branch-C-css
 ```
 
 ---
@@ -824,13 +778,10 @@ CはGitHubブラウザから、`work-branch-C-css`から共有リポジトリの
 
 ```text
 work-branch-C-css
-        │
         ↓
    Pull Request
-        │
         ↓
    共有リポジトリ
-        │
         ↓
        main
 ```
@@ -846,29 +797,22 @@ AはGitHubブラウザからCのPull Requestを確認する。
 その後、Pull Requestを承認して共有リポジトリの`main`へMergeする。
 
 ```text
-C
-│
-↓
+        C
+        ↓
 work-branch-C-css
-│
-↓
-Pull Request
-│
-↓
-Aがレビュー
-│
-↓
-Merge
-│
-↓
-main
+        ↓
+  Pull Request
+        ↓
+     Aがレビュー
+        ↓
+      Merge
+        ↓
+       main
 ```
 
 【Merge画面】
 
 <img width="886" height="919" alt="image" src="https://github.com/user-attachments/assets/318addd2-7417-42f7-a2e2-2d77b72ebc5a" />
-
-
 
 
 これで指定された一連の課題が完了した。
@@ -880,100 +824,84 @@ main
 今回の3人での共有リポジトリモデルによる作業をまとめると、以下のようになる。
 
 ```text
-                       A
-                    リード役
-                       │
-                       ↓
-                 リポジトリ作成
-                       │
-                       ↓
-                 共有リポジトリ
-                       │
-                       ↓
-                 index.html作成
-                       │
-                       ↓
+                        A
+                     リード役
+                        ↓
+                  リポジトリ作成
+                        ↓
+                  共有リポジトリ
+                        ↓
+                  index.html作成
+                        ↓
+                       main
+                        |
+              ┌─────────┴────────┐
+              ↓                  ↓
+              B                  C
+           開発者1            開発者2
+              ↓                  ↓
+            Clone              Clone
+              ↓                  ↓
+             main               main
+              ↓                  ↓
+         ブランチ作成        ブランチ作成
+              ↓                  ↓
+        index.html編集      index.html編集
+              ↓                  ↓
+           Commit             Commit
+              ↓                  ↓
+            Push               Push
+              ↓                  ↓
+             PR                 PR
+              |                  |
+              └─────────┬────────┘
+                        ↓
+                    Aがレビュー
+                        ↓
+                      Merge
+                        ↓
                       main
-                       │
-              ┌────────┴────────┐
-              ↓                 ↓
-              B                 C
-           開発者1           開発者2
-              │                 │
-            Clone             Clone
-              │                 │
-              ↓                 ↓
-             main              main
-              │                 │
-         ブランチ作成       ブランチ作成
-              │                 │
-        index.html編集     index.html編集
-              │                 │
-           Commit            Commit
-              │                 │
-            Push              Push
-              │                 │
-              ↓                 ↓
-             PR                PR
-              │                 │
-              └────────┬────────┘
-                       ↓
-                   Aがレビュー
-                       ↓
-                     Merge
-                       ↓
-                     main
-                       │
-                       ↓
-                   AがPull
-                       │
-                       ↓
-                作業ブランチ作成
-                       │
-                       ↓
-                index.html編集
-                       │
-                       ↓
-                    Commit
-                       │
-                       ↓
-                     Push
-                       │
-                       ↓
-                       PR
-                       ↓
-                    Merge
-                       ↓
-                     main
-                       │
-                       ↓
-              ┌────────┴────────┐
-              ↓                 ↓
-              B                 C
-           開発者1           開発者2
-              │                 │
-             Pull              Pull
-              │                 │
-              ↓                 ↓
-             main              main
-              │                 │
-        作業ブランチ作成    作業ブランチ作成
-              │                 │
-      stylesheet.css追加   stylesheet_c.css追加
-              │                 │
-           Commit            Commit
-              │                 │
-            Push              Push
-              │                 │
-              ↓                 ↓
-             PR                PR
-              │                 │
-              ↓                 ↓
-            Merge             Merge
-              │                 │
-              └────────┬────────┘
-                       ↓
-                     main
+                        ↓
+                    AがPull
+                        ↓
+                 作業ブランチ作成
+                        ↓
+                  index.html編集
+                        ↓
+                     Commit
+                        ↓
+                      Push
+                        ↓
+                        PR
+                        ↓
+                      Merge
+                        ↓
+                      main
+                        |
+              ┌─────────┴─────────┐
+              ↓                   ↓
+              B                   C
+           開発者1              開発者2
+              ↓                   ↓
+             Pull                Pull
+              ↓                   ↓
+             main                main
+              ↓                   ↓
+        作業ブランチ作成      作業ブランチ作成
+              ↓                   ↓
+       stylesheet.css追加  stylesheet_c.css追加
+              ↓                   ↓
+           Commit              Commit
+              ↓                   ↓
+            Push                Push
+              ↓                   ↓
+             PR                  PR
+              |                   |
+              └─────────┬─────────┘
+                        ↓
+                      Merge
+                        ↓
+                      main
 ```
 
 ---
@@ -983,31 +911,31 @@ main
 今回の課題では、以下の流れで共同開発を行った。
 
 ```text
-リポジトリ作成
-      ↓
+    リポジトリ作成
+          ↓
 B・CをCollaboratorに追加
-      ↓
- B・CがClone
-      ↓
-作業ブランチ作成
-      ↓
-ファイル編集
-      ↓
-    Commit
-      ↓
-共有リポジトリへPush
-      ↓
- Pull Request
-      ↓
-  Aがレビュー
-      ↓
-    Merge
-      ↓
-     main
-      ↓
-Pullして最新化
-      ↓
-次の作業ブランチ作成
+          ↓
+     B・CがClone
+          ↓
+    作業ブランチ作成
+          ↓
+    ファイル編集
+          ↓
+        Commit
+          ↓
+  共有リポジトリへPush
+          ↓
+     Pull Request
+          ↓
+      Aがレビュー
+          ↓
+        Merge
+          ↓
+         main
+          ↓
+    Pullして最新化
+          ↓
+  次の作業ブランチ作成
 ```
 
 ---
@@ -1108,25 +1036,25 @@ CがPull Requestを作成し、Aがレビュー・Mergeすることで、指定�
 今回の課題で行った基本的な流れは以下の通りである。
 
 ```text
-Collaborator追加
-      ↓
-    Clone
-      ↓
-作業ブランチ作成
-      ↓
- ファイル編集
-      ↓
-    Commit
-      ↓
-共有リポジトリへPush
-      ↓
- Pull Request
-      ↓
-    レビュー
-      ↓
-    Merge
-      ↓
-    main
+  Collaborator追加
+        ↓
+      Clone
+        ↓
+  作業ブランチ作成
+        ↓
+   ファイル編集
+        ↓
+      Commit
+        ↓
+ 共有リポジトリへPush
+        ↓
+   Pull Request
+        ↓
+      レビュー
+        ↓
+      Merge
+        ↓
+      main
 ```
 
 また、共有リポジトリモデルでは、**開発者ごとにForkを作成する必要がなく、同じ共有リポジトリを使用して共同開発を行う**ことが特徴である。
